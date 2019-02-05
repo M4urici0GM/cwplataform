@@ -1,0 +1,47 @@
+html
+    head
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title CWPlataform - Admin
+        include ./imports
+        script(src="/socket.io/socket.io.js")
+        script(src="/js/admin/socketConnection.js")
+        script(src="/js/admin/general.js")
+    body
+        nav.navbar.navbar-inverse.navbar-expand-lg.bg-dark.sticky-top.mb-2(role='navigation-demo')
+            .container
+                a.navbar-brand(href="/admin") CWPlataform Admin
+                button.navbar-toggler(type='button', data-toggle='collapse', aria-expanded='false', aria-label='Toggle navigation')
+                    span.sr-only Toggle navigation
+                    span.navbar-toggler-icon
+                    span.navbar-toggler-icon
+                    span.navbar-toggler-icon
+                .collapse.navbar-collapse
+                    ul.navbar-nav.ml-auto
+                        li.nav-item
+                            a.nav-link(href="/admin")
+                                i.material-icons home
+                                | Início
+                        li.dropdown.nav-item
+                            a.nav-link.dropdown-toggle(href="#" data-toggle="dropdown")
+                                i.material-icons dns
+                                | Gerenc. Servidores
+                            .dropdown-menu.dropdown-menu-right
+                                a.dropdown-item(href="/admin/servers")
+                                    i.material-icons list
+                                    | &nbsp; Ver servidores.
+                                a.dropdown-item(href="/admin/servers/new")
+                                    i.material-icons add_box
+                                    | &nbsp; Criar novo
+                        li.dropdown.nav-item
+                            a.nav-link.dropdown-toggle(href="#" data-toggle="dropdown")
+                                i.material-icons settings
+                                | Configurações
+                            .dropdown-menu.dropdown-menu-right
+                                a.dropdown-item(href="/admin/my-profile")
+                                    i.material-icons perm_identity
+                                    | &nbsp; Meu perfil
+                                a.dropdown-item(href="/admin/logout")
+                                    i.material-icons logout
+                                    | &nbsp; Sair
+        block content

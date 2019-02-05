@@ -1,0 +1,105 @@
+extends ../_layout/adminHeader
+block content
+    script(src="/js/admin/charts.js")
+    .main.main-raised.mt-0.container.mx-auto
+        .container
+            .row.mb-0#onlineServers
+                .container
+                    h3.title Servidores: 
+            if (servers.length > 0)
+                each server in servers
+                    .row(server_id=server.serverId)
+                        .card.bg-dark.mt-0
+                            .card-body
+                                .float-right
+                                    a.btn.btn-danger.btn-sm(href="#")
+                                        i.material-icons settings
+                                        | &nbsp; Gerenciar
+                                span.badge.badge-pill.server-status(class=(server.serverIsOnline ? 'badge-success' : 'badge-danger'))=(server.serverIsOnline ? 'Online' : 'offline')
+                                    
+                                h4.card-title
+                                    a(href='#pablo')=server.serverName
+                                
+                            .card-footer
+                                .container-fluid
+                                    .row
+                                        .col-12.col-sm-12.col-md-6.mb-3
+                                            span.badge.badge-pills.badge-warning.mx-auto.onlinePlayers.w-100
+                                                | Players Online: &nbsp;
+                                                span.badge.badge-pills.badge-danger.onlinePlayers.text-right=server.onlinePlayers 
+                                        .col-12.col-sm-12.col-md-6.mb-3
+                                            span.badge.badge-pills.badge-warning.mx-auto.onlinePlayers.w-100
+                                                | Slots: &nbsp;
+                                                span.badge.badge-pills.badge-danger.onlinePlayers=server.serverSlots
+                                        .col-12.col-sm-12.col-md-12
+                                            span.badge.badge-pills.badge-info.mx-auto.newPlayers.w-100
+                                                | Players novos hoje: &nbsp;
+                                                span.badge.badge-pills.badge-success.newPlayers=newPlayers.length
+            else
+                .row
+                    .container
+                        h2.text-center.title.mb-0 Nenhum servidor registrado ainda.
+                        h4.text-center Clique em Gerenciar Servidores > Criar novo.
+            hr
+            .row.pb-3
+                .table-responsive
+                    .container
+                        h3.title.m-0 Players Online:
+                        table.table.table-hover.table-advance.w-100.playersTable(style=(onlinePlayers.length == 0 ? 'display:none;' : ''))
+                            thead.text-center
+                                th Avatar
+                                th Nick
+                                th Server
+                                th Ações
+                            tbody
+                                each player in onlinePlayers
+                                    tr.text-center.playerRow(player_id= player.playerId)
+                                        td.align-middle 
+                                            img(src=`https://minotar.net/avatar/${player.playerName}` width="25")
+                                        td.align-middle
+                                            each p in onlinePlayers
+                                                if (p.playerName == player.playerName)
+                                                    i.material-icons.align-middle.text-success fiber_new
+                                                | &nbsp;
+                                                = player.playerName
+                                        td.align-middle=player.serverName
+                                            
+                                        td.align-middle 
+                                            .d-none.d-sm-none.d-md-block
+                                                button.btn.btn-warning.kick-player(player_id=player.playerId server_id=player.fkServerId) Kickar
+                                                button.btn.btn-danger.ban-player(player_id=player.playerId server_id=player.fkServerId) Banir
+                                            .dropdown.d-block.d-sm-block.d-md-none
+                                                button.btn.btn-default.dropdown-toggle(data-toggle="dropdown")
+                                                    i.material-icons settings
+                                                .dropdown-menu
+                                                    a.dropdown-item.kick-player(href="#" player_id=player.playerId server_id=player.fkServerId) 
+                                                        i.material-icons  exit_to_app
+                                                        | &nbsp; Kickar
+                                                    a.dropdown-item.ban-player(href="#" player_id=player.playerId server_id=player.fkServerId)
+                                                        i.material-icons  gavel
+                                                        | &nbsp; Banir
+                                tr.text-center.d-none.playerRow#playerDivBase
+                                    td.align-middle.playerImg
+                                        img(src="https://minotar.net/avatar/steve" width="25")
+                                    td.align-middle.playerNick Steve
+                                    td.align-middle.playerServer None
+                                    td.align-middle 
+                                        .d-none.d-sm-none.d-md-block
+                                            button.btn.btn-warning.kick-player Kickar
+                                            button.btn.btn-danger.ban-player Banir
+                                        .dropdown.d-block.d-sm-block.d-md-none
+                                            button.btn.btn-default.dropdown-toggle(data-toggle="dropdown")
+                                                i.material-icons settings
+                                            .dropdown-menu
+                                                a.dropdown-item.kick-player(href="#") 
+                                                    i.material-icons  exit_to_app
+                                                    | &nbsp; Kickar
+                                                a.dropdown-item.ban-player(href="#")
+                                                    i.material-icons  gavel
+                                                    | &nbsp; Banir
+                        .row.noOnlinePlayers(style=(onlinePlayers.length != 0 ? 'display:none;' : ''))
+                            .container
+                                h4.text-center Não há nenhum player online.
+
+        div#myChart
+                    

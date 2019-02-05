@@ -1,0 +1,32 @@
+extends ../_layout/header
+block content
+    script(src="/js/login.js")
+    .page-header.header-filter(style="background-image: url('/images/login_back.jpg'); background-size: cover; background-position: top center;")
+        .container
+            .row
+                .col-lg-4.col-md-6.ml-auto.mr-auto
+                    .card.card-login
+                        form.form(method='POST', action='/authenticate')#formLogin
+                            .card-body.text-dark
+                                .container.text-center
+                                    h3.title.text-dark 
+                                        i.material-icons vpn_key
+                                        | &nbsp; Fazer Login
+                                .container.p-3
+                                    .form-group.bmd-form-group
+                                        label.bmd-label-floating(for='UsuarioTxt') Usuário
+                                        input#UsuarioTxt.form-control(type='text')
+                                        span.bmd-help O mesmo que você usa no servidor.
+                                    .form-group.bmd-form-group
+                                        label.bmd-label-floating(for='SenhaTxt') Senha
+                                        input#SenhaTxt.form-control(type='password')
+                                        span.bmd-help A mesma do servidor.
+                                .container.text-right
+                                    .row
+                                        .col-12.col-sm-12.col-md-12.col-lg-12
+                                            button(type="submit").btn.btn-danger.btn-wd.btn-lg.text-white.btn-block#fazerLogin
+                                                i.material-icons check
+                                                | &nbsp; Login
+                                        .col-12.col-sm-12.col-md-12.col-lg-12
+                                            a.btn.btn-link.btn-sm.btn-block
+                                                | Esqueceu sua senha ?

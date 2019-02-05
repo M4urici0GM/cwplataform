@@ -1,0 +1,7 @@
+.form-control,
+.is-focused .form-control {
+  background-image: linear-gradient(to top, #028b19 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
+}
+.onlinePlayers, .newPlayers{ font-size: 1.1em;}
+
+/* .badge-warning.badge-pills.onlinePlayers{width: 100%} */

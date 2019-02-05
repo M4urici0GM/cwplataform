@@ -1,0 +1,91 @@
+extends ./_layout/header
+block content
+    script(src="/socket.io/socket.io.js")
+    script(src="/js/admin/socketConnection.js")
+    #carouselExampleIndicators.carousel.slide(data-ride='carousel', data-interval='5000')
+        ol.carousel-indicators
+            li.active(data-target='#carouselExampleIndicators', data-slide-to='0')
+            li(data-target='#carouselExampleIndicators', data-slide-to='1')
+            li(data-target='#carouselExampleIndicators', data-slide-to='2')
+        .carousel-inner
+            .carousel-item.active
+                img.d-block.w-100.img-fluid(src='./images/slide1.png', alt='First slide')
+                .carousel-caption.d-none.d-md-block
+                    h1 O Autêntico CraftWorld
+                    h3
+                        i.material-icons done
+                        |  Servidor Oficial do modpack A Era do Futuro III
+            .carousel-item
+                img.d-block.w-100(src='./images/slide3.png', alt='Second slide')
+                .carousel-caption.d-none.d-md-block
+                    h1 Plataforma única!.
+                    h3
+                        i.material-icons dns
+                        |  Criamos uma plataforma própria, para você ter uma experiência única!!.
+            .carousel-item
+                img.d-block.w-100(src='./images/slide4.png', alt='Third slide')
+                .carousel-caption.d-none.d-md-block
+                    h1 Experimente!
+                    h3
+                        i.material-icons thumb_up
+                        |  Venha jogar conosco.
+        a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+            i.material-icons keyboard_arrow_left
+            span.sr-only Previous
+        a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+            i.material-icons keyboard_arrow_right
+            span.sr-only Next
+    .container-fluid.bg-danger.pb-3.pt-3
+        .container
+            .row.text-white
+                .col-12.col-sm-12.col-md-6.text-center
+                    img(src="/images/misc2.png  ", alt="")
+                    h2.text-center
+                        | A Era do futuro
+                    h4 Nosso primeiro servidor do modpack A Era do Futuro III. Um upgrade do nosso primeiro servidor de A Era do Futuro I, agora com os Mods atualizados você construirá uma Mega Industria, participará de Clans, poderá ser o mais Rico do server e ganhar a Tag exclusiva MAGNATA.
+                .col-12.col-sm-12.col-md-6.text-center
+                    img(src="/images/misc1.png", alt="")
+                    h2.text-center
+                        | A Era do futuro 3
+                    h4 Nosso primeiro servidor do modpack A Era do Futuro III. Um upgrade do nosso primeiro servidor de A Era do Futuro I, agora com os Mods atualizados você construirá uma Mega Industria, participará de Clans, poderá ser o mais Rico do server e ganhar a Tag exclusiva MAGNATA.
+
+    .container.p-3
+        .row
+            .col-12.col-sm-12.col-md-4.col-lg-4
+                img(src="/images/ball.png", alt="Não se prenda.").d-block.mx-auto
+                h3.title.text-center Não se prenda!
+                h4.text-center Não fique preso ao servidor, aqui você tem uma plataforma online onde você pode comprar itens, ou até mesmo comprar seu vip e ser ativado automáticamnte.
+            .col-12.col-sm-12.col-md-4.col-lg-4
+                img(src="/images/char.png", alt="Não se prenda.").d-block.mx-auto
+                h3.title.text-center Fique por dentro!
+                h4.text-center Tenha estatísticas suas dentro do servidor, adicione amigos, e muito mais.
+            .col-12.col-sm-12.col-md-4.col-lg-4
+                img(src="/images/sheeps.png", alt="Não se prenda.").d-block.mx-auto
+                h3.title.text-center Suporte de primeira mão!
+                h4.text-center Precisa de ajuda? não espere dar a sorte de achar um staff online, aqui você tem + facilidade na hora de entrar em contato conosco..
+    .container-fluid.backgroundPayment.text-white.p-5
+        .row
+            .col-12
+                h2.text-center
+                    i.material-icons payment
+                    | &nbsp; Aceitamos diversos meios de pagamento:
+                img(src="/images/mercadopago.png", alt="").d-block.mx-auto.img-fluid
+    footer.bg-dark.p-3
+        .container.text-white
+            .row
+                .col-12.col-sm-12.col-md-6.text-left
+                    h3 Copyright © CraftWorld - NetWork
+                    p Site desenvolvido por M4urici0GM ~ Todos os direitos reservados.
+                .col-12.col-sm-12.col-md-6.text-sm-center.text-md-right.text-lg-right
+                    a(href="#").footer-brands.mr-4
+                        h1
+                            i.fab.fa-facebook-f
+                    a(href="#").footer-brands
+                        h1
+                            i.fab.fa-youtube
+                    
+    style.
+        .backgroundPayment { background-image: url('/images/backgroundPayment.png'); }
+        .footer-brands {text-decoration: none; color: inherit; display: inline-block}
+        .footer-brands:hover { color: #dddd }
+    

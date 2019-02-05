@@ -1,0 +1,55 @@
+html
+    head
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title CraftWorld NetWork
+        include imports
+    body.m-0.p-0
+        nav.navbar.navbar-inverse.navbar-expand-lg.bg-dark.sticky-top.mb-0(role='navigation-demo')
+            .container
+                a.navbar-brand(href='#0') CraftWorld NetWork
+                button.navbar-toggler(type='button', data-toggle='collapse', aria-expanded='false', aria-label='Toggle navigation')
+                    span.sr-only Toggle navigation
+                    span.navbar-toggler-icon
+                    span.navbar-toggler-icon
+                    span.navbar-toggler-icon
+                .collapse.navbar-collapse
+                    ul.navbar-nav.ml-auto
+                        li.nav-item
+                            a.nav-link(href='/')
+                                i.material-icons home
+                                | Início
+                        li.nav-item
+                            a.nav-link(href='#pablo')
+                                i.material-icons dns
+                                | Servidores
+                        li.nav-item
+                            a.nav-link(href='#pablo')
+                                i.material-icons local_grocery_store
+                                | Loja
+                        if (!profile)
+                            li.nav-item
+                                a.nav-link(href="/login")
+                                    i.material-icons account_circle
+                                    | Fazer Login
+                        if (profile)
+                            li.nav-item
+                                a.nav-link(href="#")
+                                    i.material-icons dashboard
+                                    | Dashboard
+                            li.nav-item
+                                a.nav-link
+                                    i.far.fa-money-bill-alt
+                                    | &nbsp; 0.00
+                            li.dropdown.nav-item
+                                a.nav-link.d-block.d-sm-block.d-md-none.d-lg-none.dropdown-toggle(data-toggle='dropdown' href='#')
+                                    i.material-icons face
+                                    | #{profile.realname}.
+                                a.profile-photo.dropdown-toggle.nav-link.d-none.d-sm-none.d-md-block(data-toggle='dropdown' href='#')
+                                   img.profile-photo-small.rounded-circle.img-fluid(src=`https://minotar.net/avatar/${profile.realname}`, alt='Circle Image')
+                                .dropdown-menu.dropdown-menu-right
+                                    h6.dropdown-header Minha conta
+                                    a.dropdown-item(href='#') Meu perfil
+                                    a.dropdown-item(href="#") Configurações
+                                    a.dropdown-item(href='#') Sair
+        block content

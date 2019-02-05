@@ -1,0 +1,10 @@
+html
+    head
+        title Test
+        script(src="/socket.io/socket.io.js")
+        script.
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const clientConnection = io();
+            });
+    body
+        h1 Hello World.
